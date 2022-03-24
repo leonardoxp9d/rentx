@@ -1,5 +1,3 @@
-/** Teste, para testar o useCase AuthenticateUserUseCase.ts */
-
 import { ICreateUserDTO } from "@modules/accounts/dtos/ICreateUserDTO";
 import { UsersRepositoryInMemory } from "@modules/accounts/repositories/in-memory/UsersRepositoryInMemory";
 import { CreateUserUseCase } from "@modules/accounts/useCases/createUser/CreateUserUseCase";
@@ -37,7 +35,6 @@ describe("Authenticate User", () => {
     expect(result).toHaveProperty("token");
   });
 
-  /** teste para não autenticar um usuario  n cadastrado, olhando pelo email */
   it("Should not be able to authenticate a non existent user.", () => {
     expect(async () => {
       await authenticateUserUseCase.execute({
@@ -47,7 +44,6 @@ describe("Authenticate User", () => {
     }).rejects.toBeInstanceOf(AppError);
   });
 
-  /** teste para não autenticar um usuario que passou a senha errada */
   it("Should not be able to authenticate a incorrect user password.", () => {
     expect(async () => {
       const user: ICreateUserDTO = {

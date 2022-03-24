@@ -1,5 +1,3 @@
-/** Caso de uso parar criar especificação de um carro */
-
 import { inject, injectable } from "tsyringe";
 
 import { Car } from "@modules/cars/infra/typeorm/entities/Car";
@@ -33,12 +31,8 @@ class CreateCarSpecificationUseCase {
       specifications_id
     );
 
-    /** altera o valor de carExists.specification, passando todos valores
-     * de specifications para ele */
     carExists.specifications = specifications;
 
-    /** e ae damos um update atraves do método create
-     * isso e normal n há nada de errado */
     await this.carsRepository.create(carExists);
 
     return carExists;

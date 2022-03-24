@@ -8,8 +8,6 @@ interface IRequest {
   description: string;
 }
 
-/** injectable -transforma em uma classe que pode injetavel por outra
- * que no caso vai ser nosso controller */
 @injectable()
 class CreateCategoryUseCase {
   constructor(
@@ -18,7 +16,6 @@ class CreateCategoryUseCase {
     private categoriesRepository: ICategoriesRepository
   ) {}
 
-  // método responsável por fazer tudo que nossa create precisa fazer
   async execute({ name, description }: IRequest): Promise<void> {
     const categoryAlreadyExists = await this.categoriesRepository.findByName(
       name

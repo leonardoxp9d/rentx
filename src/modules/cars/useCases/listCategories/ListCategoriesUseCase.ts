@@ -10,7 +10,6 @@ class ListCategoriesUseCase {
     private categoriesRepository: ICategoriesRepository
   ) {}
 
-  // método responsável por fazer tudo que nossa create precisa fazer
   async execute(): Promise<Category[]> {
     const categories = await this.categoriesRepository.list();
     return categories;

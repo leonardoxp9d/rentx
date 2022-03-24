@@ -1,6 +1,5 @@
 /** Arquivo para fazer injeção de dependencia/instancia
- * de forma mais automatica com tsyringe
- */
+ * de forma mais automatica com tsyringe */
 
 import { container } from "tsyringe";
 

@@ -1,23 +1,3 @@
-/** Teste, para testar o useCase CreateCategoryUseCase.ts */
-/** describre - serve para agrupar nossos testes
- * colocamos tudo que esta fazendo nosso teste
- * dentro dele colocamos os testes */
-/** it - para criar os testes, colocamos dentro do it()
- * 1º param - descrição do que espera que o teste faça
- * 2º oaram - a função com o teste dentro
- */
-/** expect()/espero - colocamos o resultado que deu
- * toBe()/seja - colocamos o resultado que esperamos aqui
- * podemos colocar quanto expect quisermos */
-/** .not.toBe - não espero que seja tal resultado */
-/** beforeEach() - e uma função que executa uma determinada função
- * antes de começar o teste */
-/** toHaveProperty() - verifica se o objeto tem uma determinada propriedade
- * no caso o id, assim fica sabendo se realmente foi criado o user */
-/** rejects - caso o código seja rejeitado
- * toBeInstanceOf - espera que o erro seja da uma determinada instancia
- * no caso o AppError */
-
 import { CategoriesRepositoryInMemory } from "@modules/cars/repositories/in-memory/CategoriesRepositoryInMemory";
 import { AppError } from "@shared/errors/AppError";
 

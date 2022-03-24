@@ -1,5 +1,3 @@
-/** Repositorio fake para testes de criação de espeficicação de carros */
-
 import { Specification } from "@modules/cars/infra/typeorm/entities/Specification";
 
 import {
@@ -33,8 +31,6 @@ class SpecificationsRepositoryInMemory implements ISpecificationsRepository {
   }
 
   async findByIds(ids: string[]): Promise<Specification[]> {
-    /** ids.includes(specification.id) - pega todos os ids
-     * que estão inclusos no array de specifications */
     const allSpecifications = this.specifications.filter((specification) =>
       ids.includes(specification.id)
     );

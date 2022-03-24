@@ -1,5 +1,3 @@
-/** Repositório fake para fazer testes, no caso a autenticação de user */
-
 import { User } from "@modules/accounts/infra/typeorm/entities/User";
 
 import { ICreateUserDTO } from "../../dtos/ICreateUserDTO";

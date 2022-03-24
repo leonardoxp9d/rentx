@@ -1,5 +1,3 @@
-/** Repositorio fake para lidar com os testes relacionado ao modulo de carro */
-
 import { ICreateCarDTO } from "@modules/cars/dtos/ICreateCarDTO";
 import { Car } from "@modules/cars/infra/typeorm/entities/Car";
 
@@ -35,9 +33,8 @@ class CarsRepositoryInMemory implements ICarsRepository {
 
     return car;
   }
-  /** Método para procurar o carro com a mesma placa */
+
   async findByLicensePlate(license_plate: string): Promise<Car> {
-    /** find - retorna somente 1 objeto */
     return this.cars.find((car) => car.license_plate === license_plate);
   }
 

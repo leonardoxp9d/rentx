@@ -16,28 +16,19 @@ export async function ensureAuthenticated(
   response: Response,
   next: NextFunction
 ) {
-  /** pega o token enviado */
   const authHeader = request.headers.authorization;
 
-  /** verifica se o autHeader está preenchido */
   if (!authHeader) {
     throw new AppError("Token missing", 401);
   }
 
-  /** desestruturando o token, para pegar so o token
-   * split - divide nossa informação, criando um array
-   * [,toKen] - excluimos a posição 0(Beader) antes da "," e pegamos so o token */
   const [, token] = authHeader.split(" ");
 
-  /** verify - verificamos se o token e valido
-   * se de erro ele lança um excessão por isso
-   * vamos utilizar try-catch */
   try {
     const { sub: user_id } = verify(
       token,
       "629154f7128dbc61abbdf5264038e57d"
     ) as IPayload;
-    // vericar se o usuario existe no banco de dados
     const usersRepository = new UsersRepository();
 
     const user = await usersRepository.findById(user_id);
@@ -46,8 +37,6 @@ export async function ensureAuthenticated(
       throw new AppError("User does not exists!", 401);
     }
 
-    /** passando o id do user para o request
-     * para assim recupear ele em outras horas */
     request.user = {
       id: user_id,
     };

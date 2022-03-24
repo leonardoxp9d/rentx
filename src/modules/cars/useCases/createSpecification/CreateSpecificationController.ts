@@ -7,7 +7,6 @@ class CreateSpecificationController {
   async handle(request: Request, response: Response): Promise<Response> {
     const { name, description } = request.body;
 
-    /** injeção de dependencia, instancia, singleton */
     const createSpecificationUseCase = container.resolve(
       CreateSpecificationUseCase
     );

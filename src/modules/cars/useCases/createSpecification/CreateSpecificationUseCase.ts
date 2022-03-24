@@ -15,7 +15,6 @@ class CreateSpecificationUseCase {
     private specificationsRepository: ISpecificationsRepository
   ) {}
 
-  // método responsável por fazer tudo que nossa create precisa fazer
   async execute({ name, description }: IRequest): Promise<void> {
     const specificationAlreadyExists =
       await this.specificationsRepository.findByName(name);

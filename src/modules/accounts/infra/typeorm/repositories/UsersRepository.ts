@@ -19,7 +19,6 @@ class UsersRepository implements IUsersRepository {
     avatar,
     id,
   }: ICreateUserDTO): Promise<void> {
-    // create - criar a entidade para poder salvar no banco
     const user = this.repository.create({
       name,
       email,

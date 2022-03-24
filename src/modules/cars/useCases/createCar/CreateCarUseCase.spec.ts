@@ -12,7 +12,6 @@ describe("Create Car", () => {
     createCarUseCase = new CreateCarUseCase(carsRepositoryInMemory);
   });
 
-  /** Teste para cadastrar um carro */
   it("Should be able to create a new car", async () => {
     const car = await createCarUseCase.execute({
       name: "Name Car",
@@ -27,7 +26,6 @@ describe("Create Car", () => {
     expect(car).toHaveProperty("id");
   });
 
-  /** Teste para não cadastrar carro com placas iguais */
   it("Should not to be able to create a car with existent license plate", () => {
     expect(async () => {
       await createCarUseCase.execute({
@@ -51,7 +49,6 @@ describe("Create Car", () => {
     }).rejects.toBeInstanceOf(AppError);
   });
 
-  /** Teste ao criar um carro novo, ele ja venha com available disponivel/true */
   it("Should not to be able to create a car with available true by default", async () => {
     const car = await createCarUseCase.execute({
       name: "Car Available",

@@ -17,7 +17,6 @@ class SpecificationsRepository implements ISpecificationsRepository {
     name,
     description,
   }: ICreateSpecificationDTO): Promise<Specification> {
-    // create - criar a entidade para poder salvar no banco
     const specification = this.repository.create({
       name,
       description,
@@ -29,7 +28,6 @@ class SpecificationsRepository implements ISpecificationsRepository {
   }
 
   async findByName(name: string): Promise<Specification> {
-    // findOne - tras 1 registro, que for igual o nome que foi passado
     const specification = await this.repository.findOne({ name });
     return specification;
   }

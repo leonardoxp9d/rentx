@@ -7,8 +7,6 @@ class RentalsRepositoryInMemory implements IRentalsRepository {
   rentals: Rental[] = [];
 
   async findOpenRentalByCar(car_id: string): Promise<Rental> {
-    /** !rental.end_date - se não tiver nada, e porque não
-     * o carro não foi devolvido */
     return this.rentals.find(
       (rental) => rental.car_id === car_id && !rental.end_date
     );
@@ -27,7 +25,6 @@ class RentalsRepositoryInMemory implements IRentalsRepository {
   }: ICreateRentalDTO): Promise<Rental> {
     const rental = new Rental();
 
-    /** start_date: new Date(), - para iniciar a data de locação */
     Object.assign(rental, {
       car_id,
       expected_return_date,

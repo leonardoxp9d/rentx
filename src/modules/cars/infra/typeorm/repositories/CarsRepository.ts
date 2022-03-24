@@ -12,7 +12,6 @@ class CarsRepository implements ICarsRepository {
     this.repository = getRepository(Car);
   }
 
-  /** Método para criar o carro no banco */
   async create({
     name,
     description,
@@ -39,7 +38,6 @@ class CarsRepository implements ICarsRepository {
     return car;
   }
 
-  /** Método para procurar carro com a mesma placa no banco */
   async findByLicensePlate(license_plate: string): Promise<Car> {
     const car = await this.repository.findOne({
       license_plate,
@@ -47,16 +45,11 @@ class CarsRepository implements ICarsRepository {
     return car;
   }
 
-  /** Método para listar carros, atraves da marca, nome, ou categoria */
   async findAvailable(
     brand?: string,
     category_id?: string,
     name?: string
   ): Promise<Car[]> {
-    /** .createQueryBuilder("c")-
-     * "c" -1º param - e um alias, nome que vamos utilizar nas nossas buscas
-     * .where("available = :available", { available: true }); -
-     * condição, no caso esperamos que nosso campo available seja true */
     const carsQuery = await this.repository
       .createQueryBuilder("c")
       .where("available = :available", { available: true });
@@ -73,14 +66,11 @@ class CarsRepository implements ICarsRepository {
       carsQuery.andWhere("category_id = :category_id", { category_id });
     }
 
-    /** carsQuery.getMany(); - método para rodar a query(queryBuilder)
-     * para conseguir todos os objetos */
     const cars = await carsQuery.getMany();
 
     return cars;
   }
 
-  /** retorna o carro com o id igual ao que foi mandado */
   async findById(id: string): Promise<Car> {
     const car = await this.repository.findOne(id);
     return car;

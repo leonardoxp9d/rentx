@@ -1,4 +1,4 @@
-/** Arquivo que cotém o método para excluir avatar/foto antigo do usuario */
+/** Arquivo que cotém o método para excluir avatar/foto antiga do usuario */
 
 import fs from "fs";
 

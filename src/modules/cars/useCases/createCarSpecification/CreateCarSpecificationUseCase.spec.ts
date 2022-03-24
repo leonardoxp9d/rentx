@@ -43,9 +43,7 @@ describe("Create Car Specification", () => {
       specifications_id,
     });
 
-    /** esperaq ue specifications_cars tenha a propriedade specifications */
     expect(specifications_cars).toHaveProperty("specifications");
-    /** espera que a propriedade de specifications tenha o tamanho igual a 1 */
     expect(specifications_cars.specifications.length).toBe(1);
   });
 

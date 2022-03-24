@@ -12,7 +12,6 @@ class CreateUserUseCase {
     private usersRepository: IUsersRepository
   ) {}
 
-  // método responsável por fazer regra de negocio antes de usar o create
   async execute({
     name,
     email,

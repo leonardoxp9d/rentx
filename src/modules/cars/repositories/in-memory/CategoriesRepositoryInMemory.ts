@@ -1,5 +1,3 @@
-/** Repositório fake para fazer testes, no caso a criação de user */
-
 import { Category } from "@modules/cars/infra/typeorm/entities/Category";
 
 import {

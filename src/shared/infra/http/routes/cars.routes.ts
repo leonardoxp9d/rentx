@@ -28,7 +28,6 @@ carsRoutes.post(
 
 carsRoutes.get("/available", listAvailablecarsController.handle);
 
-/** rota para criar o relacionamento especificação do carro */
 carsRoutes.post(
   "/specifications/:id",
   ensureAuthenticated,
@@ -36,7 +35,6 @@ carsRoutes.post(
   createCarSpecificationController.handle
 );
 
-/** Rota para salvar as imanges do carro */
 carsRoutes.post(
   "/images/:id",
   ensureAuthenticated,
