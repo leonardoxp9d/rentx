@@ -75,6 +75,26 @@ class CarsRepository implements ICarsRepository {
     const car = await this.repository.findOne(id);
     return car;
   }
+
+  /** método para alterar a disponibilidade/available do carro */
+  async updateAvailable(id: string, available: boolean): Promise<void> {
+    /* aqui vamos utilizaro conceito de querybuilder 
+    tem na documentação 
+    set - valor que quero setar, no caso o valor que está em available
+    where - onde vou setar, no caso onde o id do carro for igual ao :id, referencia ao parametro
+    setParameters - passamos a referencia do id
+    execute - executa a query 
+    ele retorna um updateResult
+    isso seria como o Update do sql
+    Update cars set available = 'true' where id = :id */
+    await this.repository
+      .createQueryBuilder()
+      .update()
+      .set({ available })
+      .where("id = :id")
+      .setParameters({ id })
+      .execute();
+  }
 }
 
 export { CarsRepository };

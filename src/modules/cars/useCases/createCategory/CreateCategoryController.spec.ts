@@ -51,6 +51,7 @@ describe("Create Category Controller", () => {
     expect(response.status).toBe(201);
   });
 
+  // Teste para não registrar uma categoria com o mesmo nome
   it("should not be able to create a new category with name exists ", async () => {
     const responseToken = await request(app).post("/sessions").send({
       email: "admin@rentx.com.br",
