@@ -35,7 +35,7 @@ class DevolutionRentalUseCase {
     /* pega a data atual */
     const dateNow = this.dateProvider.dateNow();
 
-    /* comapra a data inicial com data atual, 
+    /* compara a data inicial com data atual, 
     para pegar os dias em que o cliente ficou com o carro */
     let daily = this.dateProvider.compareInDays(
       rental.start_date,

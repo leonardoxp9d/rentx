@@ -6,7 +6,7 @@ import { IDateProvider } from "../IDateProvider";
 /** Para converter o formato da hora em formato utc */
 dayjs.extend(utc);
 
-class DayJsDateProvider implements IDateProvider {
+class DayjsDateProvider implements IDateProvider {
   compareInHours(start_date: Date, end_date: Date): number {
     const end_date_utc = this.convertToUtc(end_date);
     const start_date_utc = this.convertToUtc(start_date);
@@ -34,4 +34,4 @@ class DayJsDateProvider implements IDateProvider {
   }
 }
 
-export { DayJsDateProvider };
+export { DayjsDateProvider };
