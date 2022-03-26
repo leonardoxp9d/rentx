@@ -15,6 +15,7 @@ import { Car } from "@modules/cars/infra/typeorm/entities/Car";
 class Rental {
   @PrimaryColumn()
   id: string;
+
   @ManyToOne(() => Car)
   @JoinColumn({ name: "car_id" })
   car: Car;
