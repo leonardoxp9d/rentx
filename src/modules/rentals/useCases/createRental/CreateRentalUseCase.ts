@@ -54,7 +54,7 @@ class CreateRentalUseCase {
     );
 
     if (compare < minimumHour) {
-      throw new AppError("Invalid return time.");
+      throw new AppError("Invalid return time!");
     }
 
     const rental = await this.rentalsRepository.create({
