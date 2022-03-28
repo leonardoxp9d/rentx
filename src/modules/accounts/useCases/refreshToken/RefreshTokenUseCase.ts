@@ -30,8 +30,7 @@ class RefreshTokenUseCase {
 
     const user_id = sub;
 
-    /* verifica se existe o refresh token no banco, 
-    e também verifica se o token e referente ao usuario que fez a requisição */
+    /* pega o refresh token, baseado no id do usuario e no token */
     const userToken =
       await this.usersTokensRepository.findByUserIdAndRefreshToken(
         user_id,

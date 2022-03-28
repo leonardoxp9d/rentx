@@ -1,14 +1,21 @@
-/*
-import { Request, Response } from 'express';
-import { container } from 'tsyringe';
-import { RefreshTokenUseCase } from './RefreshTokenUseCase'; */
+import { Request, Response } from "express";
+import { container } from "tsyringe";
+
+import { RefreshTokenUseCase } from "./RefreshTokenUseCase";
 
 class RefreshTokenController {
   async handle(request: Request, response: Response): Promise<Response> {
-    // const refreshTokenUseCase = container.resolve(RefreshTokenUseCase);
-    // const  = await refreshtokenUseCase.execute();
+    /* formas que podemos receber o token - body, headers, ou querys */
+    const token =
+      request.body.token ||
+      request.headers["x-access-token"] ||
+      request.query.token;
 
-    return response.json();
+    const refreshTokenUseCase = container.resolve(RefreshTokenUseCase);
+
+    const refresh_token = await refreshTokenUseCase.execute(token);
+
+    return response.json(refresh_token);
   }
 }
 
