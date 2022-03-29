@@ -43,6 +43,13 @@ class DayjsDateProvider implements IDateProvider {
   addHours(hours: number): Date {
     return dayjs().add(hours, "hour").toDate();
   }
+
+  /* faz a comparação entre 2 datas, e verifica se ta expirado a data */
+  compareIfBefore(start_date: Date, end_date: Date): boolean {
+    /* verificar se a 1º data vem antes da 2º 
+    assim conseguimos verficar se a data de expiração (start_date) esta dentro do prazo */
+    return dayjs(start_date).isBefore(end_date);
+  }
 }
 
 export { DayjsDateProvider };
