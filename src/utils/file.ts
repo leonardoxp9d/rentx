@@ -8,11 +8,12 @@ import fs from "fs";
  * ele da um erro, ai então cai no try-catch
  */
 export const deleteFile = async (filename: string) => {
+  /*
   try {
     await fs.promises.stat(filename);
   } catch {
     return;
-  }
+  } */
 
   /** unlink - método responsavel por remover o nosso arquivo/avatar antigo */
   await fs.promises.unlink(filename);
