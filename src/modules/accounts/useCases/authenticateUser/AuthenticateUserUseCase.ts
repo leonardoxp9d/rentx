@@ -53,6 +53,7 @@ class AuthenticateUserUseCase {
       throw new AppError("Email or password incorrect!");
     }
 
+    /* gera/cria o token */
     const token = sign({}, secret_token, {
       subject: user.id,
       expiresIn: expires_in_token,
