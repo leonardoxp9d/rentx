@@ -53,25 +53,20 @@ class AuthenticateUserUseCase {
       throw new AppError("Email or password incorrect!");
     }
 
-    /* gera/cria o token */
     const token = sign({}, secret_token, {
       subject: user.id,
       expiresIn: expires_in_token,
     });
 
-    /* criação do refresh_token,
-    passamos o email como payload, porque pode precisar */
     const refresh_token = sign({ email }, secret_refresh_token, {
       subject: user.id,
       expiresIn: expires_in_refresh_token,
     });
 
-    /* dia que o token vai expirar */
     const refresh_token_expires_date = this.dateProvider.addDays(
       expires_refresh_token_days
     );
 
-    /* salva o refresh token no banco */
     await this.usersTokensRepository.create({
       user_id: user.id,
       refresh_token,

@@ -19,11 +19,8 @@ class UploadCarImagesUseCase {
 
   async execute({ car_id, images_name }: IRequest): Promise<void> {
     images_name.map(async (image) => {
-      /** salva o endereço da imagem no banco */
       await this.carsImagesRepository.create(car_id, image);
 
-      /** salva a imagem na pasta tmp local ou no s3 storage na amazon
-       * depende do que tiver na variavel disk do arquivo .env */
       await this.storageProvider.save(image, "cars");
     });
   }

@@ -1,5 +1,3 @@
-/** Arquivo para fazer a injeção de dependencias */
-
 import { container } from "tsyringe";
 
 import { IDateProvider } from "./DateProvider/IDateProvider";

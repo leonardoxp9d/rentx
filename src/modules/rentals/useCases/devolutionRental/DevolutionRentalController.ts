@@ -5,7 +5,6 @@ import { DevolutionRentalUseCase } from "./DevolutionRentalUseCase";
 
 export class DevolutionRentalController {
   async handle(request: Request, response: Response): Promise<Response> {
-    /* id: user_id - sob-escreve o id para user_id */
     const { id: user_id } = request.user;
     const { id } = request.params;
 

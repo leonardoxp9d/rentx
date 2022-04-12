@@ -1,7 +1,3 @@
-/* configurações da autenticação */
-
-/* export default - para pegar mais facil as variaveis 
-expires_refresh_token_days - quantos dias que vai expirar o refresh token */
 export default {
   secret_token: "629154f7128dbc61abbdf5264038e57d",
   expires_in_token: "15m",

@@ -1,5 +1,3 @@
-/* Arquivo responabel pela criação da tabela de tokens do usuario */
-
 import {
   Column,
   CreateDateColumn,
@@ -23,7 +21,6 @@ class UserTokens {
   @Column()
   user_id: string;
 
-  /* podemos ter muitos user_tokens para 1 mesmo usuario */
   @ManyToOne(() => User)
   @JoinColumn({ name: "user_id" })
   user: User;

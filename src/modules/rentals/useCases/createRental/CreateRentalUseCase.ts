@@ -63,7 +63,6 @@ class CreateRentalUseCase {
       expected_return_date,
     });
 
-    /** definimos que o carro alugado esta indisponivel */
     await this.carsRepository.updateAvailable(car_id, false);
 
     return rental;

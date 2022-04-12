@@ -10,7 +10,6 @@ interface ICarsRepository {
     name?: string
   ): Promise<Car[]>;
   findById(id: string): Promise<Car>;
-  /** função para mudar o status do carro, para disponivel ou não */
   updateAvailable(id: string, available: boolean): Promise<void>;
 }
 

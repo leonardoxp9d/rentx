@@ -1,7 +1,4 @@
-/** Classe responsavel por customizar nossos erros */
-
 export class AppError {
-  /** readonly - define que o atributo so será pra leitura */
   public readonly message: string;
   public readonly statusCode: number;
 

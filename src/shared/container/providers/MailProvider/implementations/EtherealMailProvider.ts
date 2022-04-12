@@ -9,9 +9,6 @@ import { IMailProvider } from "../IMailProvider";
 class EtherealMailProvider implements IMailProvider {
   private client: Transporter;
 
-  /* construtor responsavel por criar a conta/email 
-  como n conseguimos utilizar async-await dentro de construtor
-  vamos utilizar o .then(), que ele vai traser as informações da conta */
   constructor() {
     nodemailer
       .createTestAccount()
@@ -37,19 +34,12 @@ class EtherealMailProvider implements IMailProvider {
     variables: any,
     path: string
   ): Promise<void> {
-    /* leitura dos arquivos 
-    fs.readFileSync(path) - pega o arquivo
-    toString - converte o arquivo para string como utf-8 */
     const templateFileContent = fs.readFileSync(path).toString("utf-8");
 
-    /* handlebars.compile - compila/converte para uma forma que o handlebars entenda 
-    templateParse - gera uma função, agora e uma função */
     const templateParse = handlebars.compile(templateFileContent);
 
-    /** pegamos todas as variaveis e passamos para dentro do template "templateParse" */
     const templateHTML = templateParse(variables);
 
-    /* from - de onde esta vindo a mensagem */
     const message = await this.client.sendMail({
       to,
       from: "Rentx <noreplay@rentx.com.br>",
@@ -58,7 +48,6 @@ class EtherealMailProvider implements IMailProvider {
     });
 
     console.log("Message sent: %s", message.messageId);
-    // mostra a url para verificar o que esta sendo enviado
     console.log("Preview URL: %s", nodemailer.getTestMessageUrl(message));
   }
 }

@@ -20,18 +20,14 @@ class UpdateUserAvatarUseCase {
   async execute({ user_id, avatar_file }: IRequest): Promise<void> {
     const user = await this.usersRepository.findById(user_id);
 
-    /* deleta o avatar/foto antigo */
     if (user.avatar) {
       await this.storageProvider.delete(user.avatar, "avatar");
     }
 
-    /* salva a nova foto de avatar, na pasta avatar */
     await this.storageProvider.save(avatar_file, "avatar");
 
-    /* substitui a foto no objeto desse avatar */
     user.avatar = avatar_file;
 
-    /* salva no banco essa alteração */
     await this.usersRepository.create(user);
   }
 }

@@ -1,4 +1,3 @@
-/* arquivo só para fazer o teste em SendForgotPasswordMailUseCase.spec.ts */
 import { IMailProvider } from "../IMailProvider";
 
 class MailProviderInMemory implements IMailProvider {

@@ -24,7 +24,6 @@ usersRoutes.patch(
   updateUserAvatarController.handle
 );
 
-/** rota para mostrar os dados do usuario(perfil) */
 usersRoutes.get("/profile", ensureAuthenticated, profileUserController.handle);
 
 export { usersRoutes };

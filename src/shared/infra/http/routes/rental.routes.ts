@@ -12,17 +12,14 @@ const createRentalController = new CreateRentalController();
 const devolutionRentalController = new DevolutionRentalController();
 const listRentalsByUserController = new ListRentalsByUseController();
 
-/* rota para criar aluguel de carro */
 rentalsRoutes.post("/", ensureAuthenticated, createRentalController.handle);
 
-/* rota para fazer devolução do carro */
 rentalsRoutes.post(
   "/devolution/:id",
   ensureAuthenticated,
   devolutionRentalController.handle
 );
 
-/* rota para listar os alugueis feitos pelo usuario */
 rentalsRoutes.get(
   "/user",
   ensureAuthenticated,

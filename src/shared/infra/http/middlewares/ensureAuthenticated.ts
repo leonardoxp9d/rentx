@@ -1,6 +1,3 @@
-/** middleware - garante que o ques está fazendo a requisição para uma determinada
- * rota, seja um usuario autenticado */
-
 import { NextFunction, Request, Response } from "express";
 import { verify } from "jsonwebtoken";
 
@@ -19,7 +16,6 @@ export async function ensureAuthenticated(
 ) {
   const authHeader = request.headers.authorization;
 
-  /* verifica se exite o token */
   if (!authHeader) {
     throw new AppError("Token missing", 401);
   }
@@ -27,7 +23,6 @@ export async function ensureAuthenticated(
   const [, token] = authHeader.split(" ");
 
   try {
-    /* verifica se o token e válido */
     const { sub: user_id } = verify(token, auth.secret_token) as IPayload;
 
     request.user = {

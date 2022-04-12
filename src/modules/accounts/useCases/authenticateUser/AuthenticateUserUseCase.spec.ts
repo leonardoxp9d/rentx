@@ -27,7 +27,6 @@ describe("Authenticate User", () => {
     );
     createUserUseCase = new CreateUserUseCase(usersRepositoryInMemory);
   });
-  /** teste para autenticar usuario */
   it("Should be able to authenticate a user", async () => {
     const user: ICreateUserDTO = {
       driver_license: "00123",

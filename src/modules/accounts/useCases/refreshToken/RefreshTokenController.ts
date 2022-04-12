@@ -5,7 +5,6 @@ import { RefreshTokenUseCase } from "./RefreshTokenUseCase";
 
 class RefreshTokenController {
   async handle(request: Request, response: Response): Promise<Response> {
-    /* formas que podemos receber o token - body, headers, ou querys */
     const token =
       request.body.token ||
       request.headers["x-access-token"] ||
