@@ -8,7 +8,9 @@ export class ProfileUserController {
     const { id } = request.user;
 
     const profileUserUseCase = container.resolve(ProfileUserUseCase);
+
     const user = await profileUserUseCase.execute(id);
+
     return response.json(user);
   }
 }

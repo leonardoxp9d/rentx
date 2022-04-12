@@ -11,6 +11,7 @@ class UsersRepository implements IUsersRepository {
     this.repository = getRepository(User);
   }
 
+  /* método para salvar usuario no banco */
   async create({
     name,
     email,
@@ -31,11 +32,13 @@ class UsersRepository implements IUsersRepository {
     await this.repository.save(user);
   }
 
+  /* metodo para procurar usuario no banco atraves do email */
   async findByEmail(email: string): Promise<User> {
     const user = await this.repository.findOne({ email });
     return user;
   }
 
+  /* metodo para procurar usuario no banco atraves do id */
   async findById(id: string): Promise<User> {
     const user = await this.repository.findOne(id);
     return user;

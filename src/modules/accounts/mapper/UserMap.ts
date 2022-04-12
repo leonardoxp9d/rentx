@@ -4,7 +4,7 @@ import { IUserResponseDTO } from "../dtos/IUserReponseDTO";
 import { User } from "../infra/typeorm/entities/User";
 
 class UserMap {
-  /* Método estatico para quando chamar o toDO, n precise fazer new UserMap */
+  /* colocamos estatico quando chamar o toDO, n precise fazer new UserMap */
   static toDTO({
     email,
     name,

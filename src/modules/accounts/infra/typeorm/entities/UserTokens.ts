@@ -1,3 +1,5 @@
+/* Arquivo responabel pela criação da tabela de tokens do usuario */
+
 import {
   Column,
   CreateDateColumn,
